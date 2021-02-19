@@ -4,6 +4,16 @@ import './App.css';
 import Color from '../contracts/build/Color.json';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      account: '',
+      contract: null,
+      totalSupply: 0,
+      colors: []
+    };
+  }
 
   async componentWillMount() {
     await this.loadWeb3();
@@ -58,16 +68,6 @@ class App extends Component {
         colors: [...this.state.colors, color]
       });
     });
-  }
-
-  constructor(props) {
-    super(props)
-    this.state = {
-      account: '',
-      contract: null,
-      totalSupply: 0,
-      colors: []
-    }
   }
 
   render() {
